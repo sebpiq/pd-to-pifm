@@ -8,8 +8,7 @@ const blockLength = 4096
 const byteDepth = 2
 const udpPort = 8005
 const frequency = '100.3'
-const method = process.argv.length >= 2 ? 'file' : 'pifm'
-
+const method = process.argv.length == 3 ? 'file' : 'pifm'
 if (method !== 'pifm' && method !== 'file') {
   console.error(`usage :\nnode ${__filename} [filename]\n\nif filename is provided, writes sound to file instead of pifm`)
   process.exit(1)
