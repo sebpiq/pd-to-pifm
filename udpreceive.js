@@ -1,3 +1,5 @@
+'use strict';
+
 const dgram = require('dgram')
 const fs = require('fs')
 const path = require('path')

@@ -8,7 +8,14 @@ Instructions
 
 To make it work :
 
-1. We need the `[udpsend~]` external for Pure Data, so install the `net` package. You can find it with deken for example.
+1. We need the `[udpsend~]` external for Pure Data, so install the `mrpeach-net` package. On raspbian `stretch` or higher, you can install it by running:
+    
+    ```
+    sudo apt-get install pd-mrpeach-net
+    ```
+
 2. Install [node.js](https://nodejs.org)
-3. Run the node script with the command `node udpreceive.js`
-4. Run the example pure data patch `udpsend.pd` (if you are having problems with your sound driver, you can start Pd with the `--noaudio` switch, it will work).
+3. Run the node script with the command `sudo $(which node) udpreceive.js` (we need `sudo` here because of pifm).
+4. Run the example pure data patch `pd -nogui -noaudio udpsend.pd`.
+    - **NB1** : depending on how you installed the `mrpeach-net` package and your version of pd, you might need to rename the `[udpsend~]` object to `[net/udpsend~]`
+    - **NB2** : pd doesn't need to run on the pi, it can run on your computer. For this, in `udpsend.pd` replace `localhost` by your pi's IP address.
